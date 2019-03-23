@@ -8,8 +8,10 @@
 [参考サイト2 Remark使い方メモ](https://qiita.com/opengl-8080/items/d44aec7c6c643996916b)
 
 
-'''
+```
 python3 -m http.server
 
-'''
+http://localhost:8000/slide/
+
+```
 
