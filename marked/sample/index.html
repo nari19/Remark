@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Markdown renderer</title>
+        <meta name="description" content="Markdown renderer">
+        <meta name="robots" content="noindex,nofollow">
+        <link rel="stylesheet" type="text/css" href="../../assets/style/github.css" rel="stylesheet">
+
+        <!-- js libraries -->
+        <script type="text/javascript" src="../../assets/script/jquery-2.0.3.js"></script>
+        <script type="text/javascript" src="../../assets/script/marked.js"></script>
+        <script>
+            $(document).ready(function(){
+                var target = $("#markdown_content");
+
+                $.ajax({
+                    url: target[0].attributes["src"].value,
+                }).success(function(data){
+                    target.append(marked(data));
+                }).error(function(data){
+                    target.append("This content failed to load.");
+                });
+            });
+        </script>
+        <style>
+            body {
+                max-width: 940px;
+                margin: 0 auto;
+            }
+            h1 { margin-top: 100px!important; }
+            h2 { margin-top: 80px!important; }
+            h3 { margin-top: 60px!important; }
+        </style>
+    </head>
+
+    <body>
+        <!-- Content -->
+        <div class="container">
+            <div id="markdown_content" src="./content.md"></div>
+        </div>
+    </body>
+</html>
